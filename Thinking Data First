@@ -1,0 +1,62 @@
+Thinking Data First
+
+1.
+Petsitter
+
+	name: string
+
+	has_and_belongs_to_many :pets
+
+
+Pet
+	
+	name: string
+
+	has_and_belongs_to_many :petsitters
+
+
+2.
+User
+	
+	name: string
+
+	has_many :parties
+
+
+Party
+
+	name: string
+
+	belongs_to :user
+	has_one :invitation
+
+
+Invitation
+	
+	belongs_to :party
+	has_many :users
+
+
+3.
+User
+
+	name: string
+
+	has_many :posts
+	has_many :followers, through: :relationships,
+						 class_name: "User"
+	has_many :leaders, through: :relationships,
+						 class_name: "User"
+
+
+Relationship
+	
+	belongs_to :leader
+	belongs_to :follower
+
+
+Post
+
+	content: string
+
+	belongs_to :user
