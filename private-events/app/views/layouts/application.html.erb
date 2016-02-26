@@ -7,8 +7,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+	<h4 align="right">
+		<% if logged_in? %>
+			Logged in as <%= current_user.username %> | <%= link_to "Profile", user_path(current_user) %>
+			| <%= link_to "Create new event", new_event_path %> | <%= link_to "Log out", logout_path, method: "delete" %>
+		<% else %>
+			<%= link_to "Log in", login_path %> | <%= link_to "Create account", new_user_path %>
+		<% end %>
+		<br>
+		<%= link_to "Users", users_path %> | <%= link_to "Events", events_path %>
+	</h4>
+</header>
 <%= yield %>
-
 </body>
 </html>

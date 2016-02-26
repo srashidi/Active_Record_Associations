@@ -1,0 +1,28 @@
+<h1><%= @user.name %></h1>
+<br>
+<h2>Events <%= @user.name %> is hosting:</h2>
+<% if @created_events.empty? %>
+	<h4><i>None</i></h4>
+<% else %>
+	<% @created_events.each do |event| %>
+		<h3><%= link_to event.title, event %><h3>
+	<% end %>
+<% end %>
+<br>
+<h2>Events <%= @user.name %> will be attending:</h2>
+<% if @upcoming_events.empty? %>
+	<h4><i>None</i></h4>
+<% else %>
+	<% @upcoming_events.each do |event| %>
+		<h3><%= link_to event.title, event %><h3>
+	<% end %>
+<% end %>
+<br>
+<h2>Events <%= @user.name %> has previously attended:</h2>
+<% if @past_events.empty? %>
+	<h4><i>None</i></h4>
+<% else %>
+	<% @past_events.each do |event| %>
+		<h3><%= link_to event.title, event %><h3>
+	<% end %>
+<% end %>

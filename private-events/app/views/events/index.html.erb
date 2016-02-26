@@ -1,0 +1,15 @@
+<h1>Upcoming Events</h1>
+<% @upcoming_events.each do |event| %>
+	<h3><%= link_to event.title, event_path(event) %> (created by <%= link_to event.creator.name, user_path(event.creator) %>)<h3>
+	<h4>Date: <%= event.date %></h4>
+	<p><%= event.description %></p>
+	<br>
+<% end %>
+
+<h1>Past Events</h1>
+<% @past_events.each do |event| %>
+	<h3><%= link_to event.title, event_path(event) %> (created by <%= link_to event.creator.name, user_path(event.creator) %>)<h3>
+	<h4>Date: <%= event.date %></h4>
+	<p><%= event.description %></p>
+	<br>
+<% end %>

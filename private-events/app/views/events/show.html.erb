@@ -1,0 +1,11 @@
+<h3><%= @event.title %> (created by <%= link_to @event.creator.name, user_path(@event.creator) %>)<h3>
+<h4>Date: <%= @event.date.to_formatted_s(:long_ordinal) %></h4>
+<p><%= @event.description %></p>
+<h4><u>Attendees</u></h4>
+	<% if @event.attendees.empty? %>
+		<h2><i>None</i></h2>
+	<% else %>
+		<% @event.attendees.each do |attendee| %>
+			<%= link_to attendee.name, attendee %><br>
+		<% end %>
+	<% end %>
